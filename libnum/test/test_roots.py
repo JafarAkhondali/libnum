@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+from __future__ import print_function
 import unittest
 
-from libnum.lib.primes import *
-from libnum.lib.sqrtmod import *
-from libnum.lib.factorize import factorize, unfactorize
+from lib.primes import *
+from lib.sqrtmod import *
+from lib.factorize import factorize, unfactorize
 
 
 class SqrtTest(unittest.TestCase):
@@ -65,11 +66,11 @@ class SqrtTest(unittest.TestCase):
         self.assertRaises(ValueError, has_sqrtmod, 3, {})
 
     def test_sqrt_pp_all(self):
-        print "\nTesting all residues by small modules"
+        print("\nTesting all residues by small modules")
         for prime, maxpow in [(2, 11), (3, 7), (5, 5), (7, 4), (11, 3), (13, 3), (97, 2)]:
             for k in range(1, maxpow + 1):
                 n = prime ** k
-                print "    Testing %s**%s" % (prime, k)
+                print("    Testing %s**%s" % (prime, k))
                 for x in range(n):
                     a = pow(x, 2, n)
 
@@ -86,11 +87,11 @@ class SqrtTest(unittest.TestCase):
                     self.check_valid_sqrt_pp(x, a, prime, k)
 
     def test_sqrt_pp_rand(self):
-        print "\nTesting random residues by random modules"
+        print("\nTesting random residues by random modules")
         for size, maxpow in [(2, 500), (10, 100), (64, 15), (128, 5), (129, 5), (256, 2)]:
             for i in range(10):
                 p = generate_prime(size, k=25)
-                print "    Testing %s-bit prime with max power %s: %s..." % ( size, maxpow, str(p)[:32] )
+                print("    Testing %s-bit prime with max power %s: %s..." % ( size, maxpow, str(p)[:32] ))
                 for j in range(10):
                     k = random.randint(1, maxpow)
                     x = random.randint(0, p**k - 1)
@@ -98,10 +99,10 @@ class SqrtTest(unittest.TestCase):
                     self.check_valid_sqrt_pp(x, a, p, k)
 
     def test_sqrt_composite_all(self):
-        print "\nTesting all residues by small composite modules"
+        print("\nTesting all residues by small composite modules")
         for n in [10, 30, 50, 99, 100, 655, 1025, 1337, 7**3 * 3, 2**6 * 13, 2**4 * 3 ** 3 * 5, 3 * 3 * 5 * 7, 1024]:
             f = factorize(n)
-            print "    Testing %s = %s" % (n, f)
+            print("    Testing %s = %s" % (n, f))
             for x in range(n):
                 a = pow(x, 2, n)
                 is_sqrt = has_sqrtmod(a, f)
@@ -114,12 +115,12 @@ class SqrtTest(unittest.TestCase):
                 self.check_valid_sqrt_composite(x, a, f)
 
     def test_sqrt_composite_rand(self):
-        print "\nTesting all residues by random composite modules"
+        print("\nTesting all residues by random composite modules")
         for size, ntries in [(2, 2), (3, 3), (5, 10), (7, 20), (10, 20)]:
             for i in range(ntries):
                 n = randint_bits(size)
                 f = factorize(n)
-                print "    Testing %s-bit number: %s..." % ( size, str(n)[:32] )
+                print("    Testing %s-bit number: %s..." % ( size, str(n)[:32] ))
                 for x in range(n):
                     a = pow(x, 2, n)
                     is_sqrt = has_sqrtmod(a, f)
@@ -132,12 +133,12 @@ class SqrtTest(unittest.TestCase):
                     self.check_valid_sqrt_composite(x, a, f)
 
     def test_sqrt_composite_rand_rand(self):
-        print "\nTesting random residues by random composite modules"
+        print("\nTesting random residues by random composite modules")
         for size, ntries in [(10, 20), (20, 20), (24, 20), (30, 20)]:
             for i in range(ntries):
                 n = randint_bits(size)
                 f = factorize(n)
-                print "    Testing %s-bit number: %s..." % ( size, str(n)[:32] )
+                print("    Testing %s-bit number: %s..." % ( size, str(n)[:32] ))
                 for j in range(30):
                     x = random.randint(0, n - 1)
                     a = pow(x, 2, n)

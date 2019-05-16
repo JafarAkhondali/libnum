@@ -4,7 +4,7 @@ import operator
 
 from .common import *
 from .stuff import *
-
+from functools import reduce
 
 def has_invmod(a, modulus):
     """
