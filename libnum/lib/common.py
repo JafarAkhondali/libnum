@@ -83,14 +83,21 @@ def gcd(*lst):
     """
     Return gcd of a variable number of arguments.
     """
-    return abs(reduce(lambda a, b: _gcd(a, b), lst))
+    last_val = lst[0]
+    for v in lst[1:]:
+        last_val = _gcd(v, last_val)
+    return abs(last_val)
 
 
 def lcm(*lst):
     """
     Return lcm of a variable number of arguments.
     """
-    return reduce(lambda a, b: _lcm(a, b), lst)
+    last_val = lst[0]
+    for v in lst[1:]:
+        last_val = _lcm(v, last_val)
+    return abs(last_val)
+
 
 
 def xgcd(a, b):

@@ -3,6 +3,7 @@
 import math
 import random
 import operator
+from functools import reduce
 
 from .sqrtmod import jacobi
 from .common import *
@@ -20,7 +21,7 @@ def _init():
     for p in _primes:
         _primes_bits[len_in_bits(p)].append(p)
     _small_primes_product = reduce(operator.mul, _primes)
-    _primes_mask = [(x in _primes) for x in xrange(_primes[-1] + 1)]
+    _primes_mask = [(x in _primes) for x in range(_primes[-1] + 1)]
     return
 
 
@@ -116,7 +117,7 @@ def prime_test_ferma(p, k=25):
     if p <= 3: return True
     if p & 1 == 0: return False
 
-    for j in xrange(k):
+    for j in range(k):
         a = random.randint(2, p - 1)
         if gcd(a, p) != 1:
             return False
@@ -136,7 +137,7 @@ def prime_test_solovay_strassen(p, k=25):
     if p <= 3: return True
     if p & 1 == 0: return False
 
-    for j in xrange(k):
+    for j in range(k):
         a = random.randint(2, p - 1)
         if gcd(a, p) != 1:
             return False

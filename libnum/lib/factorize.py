@@ -6,6 +6,8 @@ Some factorization methods are listed here
 
 import math
 import random
+from functools import reduce
+
 from .primes import primes, prime_test
 from .common import gcd, nroot
 
@@ -96,12 +98,12 @@ def factorize(n):
 
 
 def unfactorize(factors):
-    return reduce(lambda acc, (p, e): acc * (p**e), factors.items(), 1)
+    return reduce(lambda acc, p_e: acc * (p_e[0] ** p_e[1]), factors.items(), 1)
 
 
 def is_power(n):
     limit = int(math.log(n, 2))
-    for power in xrange(limit, 1, -1):
+    for power in range(limit, 1, -1):
         p = nroot(n, power)
         if pow(p, power) == n:
             return p, power
