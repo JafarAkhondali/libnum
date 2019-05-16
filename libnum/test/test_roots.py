@@ -2,11 +2,10 @@
 #-*- coding:utf-8 -*-
 
 import unittest
-import random
 
-from libnum.primes import *
-from libnum.sqrtmod import *
-from libnum.factorize import factorize, unfactorize
+from libnum.lib.primes import *
+from libnum.lib.sqrtmod import *
+from libnum.lib.factorize import factorize, unfactorize
 
 
 class SqrtTest(unittest.TestCase):

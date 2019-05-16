@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import math
 import random
@@ -9,7 +9,7 @@ def len_in_bits(n):
     Return number of bits in binary representation of @n.
     """
     try:
-        return n.bit_length() # new in Python 2.7
+        return n.bit_length()  # new in Python 2.7
     except AttributeError:
         if n == 0:
             return 0
@@ -139,5 +139,5 @@ def solve_linear(a, b, c):
     Solution (x0 + b*n, y0 + a*n).
     Return None or (x0, y0).
     """
-    #TODO: do
+    # TODO: do
     return None

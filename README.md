@@ -1,7 +1,7 @@
 libnum
 ====================
 
-**Requirements:** python2.7
+**Requirements:** python3
 
 This is a python library for some numbers functions:
 
@@ -85,6 +85,7 @@ warning: format of factorization is now dict like {p1: e1, p2: e2, ...}
 About
 ---------------------
 
-Author: hellman ( hellman1908@gmail.com )
+Author: hellman ( hellman1908@gmail.com )    
+Modified: Jafar akhondali (jafar.akhondali@yahoo.com )   
 
 License: MIT License (http://opensource.org/licenses/MIT)

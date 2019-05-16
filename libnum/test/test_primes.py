@@ -3,7 +3,7 @@
 
 import unittest
 
-from libnum.primes import *
+from libnum.lib.primes import *
 
 
 class PrimesTest(unittest.TestCase):

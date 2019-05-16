@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-import sys
+# THE ORIGINAL WORK BELONGS TO HELLMAN
+# https://github.com/hellman/libnum
+# I've just ported it to python3 since the project looked inactive
+
+
 from distutils.core import setup
 
 import libnum
@@ -9,12 +13,12 @@ import libnum
 
 setup(name='libnum',
       version=libnum.__version__,
-      author='hellman',
-      author_email='hellman1908@gmail.com',
+      author='jafar akhondali',
+      author_email='jafar.akhondali@yahoo.com',
       license='MIT',
 
-      url='https://github.com/hellman/libnum',
-      description='Some number theoretic functions.',
+      url='https://github.com/JafarAkhondali/python3-libnum',
+      description='python3 comptaible fork for libnum - Some number theoretic functions.',
       long_description=libnum.__doc__,
 
       packages=['libnum', 'libnum.chains'],
@@ -25,9 +29,9 @@ setup(name='libnum',
                    'Intended Audience :: Science/Research',
                    'Natural Language :: English',
                    'Operating System :: OS Independent',
-                   'Programming Language :: Python :: 2',
+                   'Programming Language :: Python :: 3',
                    'License :: OSI Approved :: MIT License',
                    'Topic :: Scientific/Engineering :: Mathematics',
                    'Topic :: Security :: Cryptography',
                   ],
-     )
+      )

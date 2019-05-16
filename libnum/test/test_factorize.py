@@ -2,8 +2,8 @@
 #-*- coding:utf-8 -*-
 
 import unittest
-from libnum.factorize import factorize
-from libnum.factorize import is_power
+from libnum.lib.factorize import factorize
+from libnum.lib.factorize import is_power
 
 
 class TestPower(unittest.TestCase):
