@@ -115,7 +115,7 @@ def nCk_mod_prime_power(n, k, p, e):
 
         fact_pe = [1]
         acc = 1
-        for x in xrange(1, pe):
+        for x in range(1, pe):
             if x % p == 0:
                 x = 1
             acc = (acc * x) % pe

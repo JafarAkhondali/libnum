@@ -83,7 +83,7 @@ def sqrtmod_prime_power(a, p, k=1):
 
     powers = [1]
     pow_p = 1
-    for i in xrange(k):
+    for i in range(k):
         pow_p *= p
         powers.append(pow_p)
 

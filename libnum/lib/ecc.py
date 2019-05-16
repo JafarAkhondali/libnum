@@ -83,7 +83,7 @@ class Curve:
         if end is None:
             end = self.module - 1
 
-        for x in xrange(start, end + 1):
+        for x in range(start, end + 1):
             p = self.check_x(x)
             if p == False:
                 continue

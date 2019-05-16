@@ -20,15 +20,15 @@ class StuffTest(unittest.TestCase):
     def test_nck(self):
         for n in (2, 5, 7, 100):
             csum = 0
-            for x in xrange(n + 1):
+            for x in range(n + 1):
                 csum += nCk(n, x)
             self.assertEqual(csum, 2**n)
 
         row = [1]
-        for n in xrange(1, 200):
+        for n in range(1, 200):
             row = [0] + row + [0]
-            row = [ row[i-1] + row[i] for i in xrange(1, len(row)) ]
-            for i in xrange(len(row)):
+            row = [ row[i-1] + row[i] for i in range(1, len(row)) ]
+            for i in range(len(row)):
                 self.assertEqual(row[i], nCk(n, i))
 
         self.assertEqual(nCk(10, -1), 0)

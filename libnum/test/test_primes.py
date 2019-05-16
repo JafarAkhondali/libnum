@@ -20,7 +20,7 @@ class PrimesTest(unittest.TestCase):
 
     def test_genprime(self):
         for size in (2, 10, 64, 128, 129, 256):
-            for ntry in xrange(10):
+            for ntry in range(10):
                 p = generate_prime(size, k=25)
                 self.assertEqual(len_in_bits(p), size)
 
