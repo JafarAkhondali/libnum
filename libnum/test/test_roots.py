@@ -13,7 +13,7 @@ class SqrtTest(unittest.TestCase):
     def check_valid_sqrt_pp(self, x, a, p, k):
         self.check_jacobi(a, p**k, 1)
 
-        any_root = sqrtmod_prime_power(a, p, k).next()
+        any_root = next(sqrtmod_prime_power(a, p, k))
         self.assertEqual(pow(any_root, 2, p**k), a)
 
         all_roots = list(sqrtmod_prime_power(a, p, k))
@@ -31,7 +31,7 @@ class SqrtTest(unittest.TestCase):
     def check_valid_sqrt_composite(self, x, a, factors):
         n = unfactorize(factors)
 
-        any_root = sqrtmod(a, factors).next()
+        any_root = next(sqrtmod(a, factors))
         self.assertEqual(pow(any_root, 2, n), a)
 
         all_roots = list(sqrtmod(a, factors))
