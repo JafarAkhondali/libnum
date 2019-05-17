@@ -40,8 +40,7 @@ def sqrtmod(a, factors):
         sqrts.append(list(sqrtmod_prime_power(a % coprime_factors[i], p, k)))
 
     for rems in product(*sqrts):
-        xxx = solve_crt(rems, coprime_factors)
-        yield xxx
+        yield solve_crt(rems, coprime_factors)
     return
 
 
@@ -85,11 +84,13 @@ def sqrtmod_prime_power(a, p, k=1):
     powers = [1]
     pow_p = 1
     for i in range(k):
-        pow_p *= p
+        pow_p *= int(p)
         powers.append(pow_p)
 
     # x**2 == a (mod p),  p is prime
     def sqrtmod_prime(a, p):
+        p = int(p)
+        a = int(a)
         if a == 0:
             return (0,)
         if a == 1:
@@ -211,7 +212,7 @@ def sqrtmod_prime_power(a, p, k=1):
         while True:
             root = (r * p_acc) % pow_p
             if root not in all_roots:
-                yield root
+                yield int(root)
                 all_roots.add(root)
             r = (r + powers[sqrt_k]) % pow_p
             if r == r0:

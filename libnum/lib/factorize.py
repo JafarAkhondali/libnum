@@ -48,6 +48,10 @@ def factorize(n):
     Use _FUNC_REDUCE (defaults to rho-pollard method) to factorize @n
     Return a dict like {p: e}
     """
+
+    if not isinstance(n, int):
+        raise TypeError("input must be integer")
+
     if n in (0, 1):
         return {n: 1}
 
@@ -69,8 +73,7 @@ def factorize(n):
         return prime_factors
 
     while factors:
-        n = factors.pop()
-
+        n = int(factors.pop())
         if prime_test(n):
             p = n
             prime_factors[p] = prime_factors.get(p, 0) + 1
