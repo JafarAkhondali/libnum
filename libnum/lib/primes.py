@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import math
 import random
@@ -156,6 +156,7 @@ def prime_test_miller_rabin(p, k=25):
     Test for primality by Miller-Rabin
     Stronger than Solovay-Strassen's test
     """
+
     if p < 2: return False
     if p <= 3: return True
     if p & 1 == 0: return False
@@ -180,8 +181,10 @@ def prime_test_miller_rabin(p, k=25):
 
             if b == p - 1:
                 # is there one more squaring left to result in 1 ?
-                if i < s - 1: break  # good
-                else: return False   # bad
+                if i < s - 1:
+                    break  # good
+                else:
+                    return False  # bad
         else:
             # result is not 1
             return False
@@ -189,6 +192,5 @@ def prime_test_miller_rabin(p, k=25):
 
 
 prime_test = prime_test_miller_rabin
-
 
 _init()

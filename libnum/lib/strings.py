@@ -1,14 +1,13 @@
 #-*- coding:utf-8 -*-
 import codecs
 
-
 def s2n(s):
     """
     String to number.
     """
     if not len(s):
         return 0
-    return int(codecs.encode(s, 'utf-8'), 16)
+    return int(s.encode("utf-8").hex(), 16)
 
 
 def n2s(n):

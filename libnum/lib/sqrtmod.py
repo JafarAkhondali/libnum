@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import operator
 from itertools import product
@@ -31,16 +31,17 @@ def sqrtmod(a, factors):
     @factors - list of (prime, power) tuples
     """
     coprime_factors = [p ** k for p, k in factors.items()]
-    #n = reduce(operator.mul, coprime_factors)
+    # n = reduce(operator.mul, coprime_factors)
 
     sqrts = []
     for i, (p, k) in enumerate(factors.items()):
         # it's bad that all roots by each modulus are calculated here
         # - we can start yielding roots faster
-        sqrts.append( list(sqrtmod_prime_power(a % coprime_factors[i], p, k) ) )
+        sqrts.append(list(sqrtmod_prime_power(a % coprime_factors[i], p, k)))
 
     for rems in product(*sqrts):
-        yield solve_crt(rems, coprime_factors)
+        xxx = solve_crt(rems, coprime_factors)
+        yield xxx
     return
 
 
@@ -92,7 +93,7 @@ def sqrtmod_prime_power(a, p, k=1):
         if a == 0:
             return (0,)
         if a == 1:
-            return (1, p-1) if p != 2 else (1,)
+            return (1, p - 1) if p != 2 else (1,)
 
         if jacobi(a, p) == -1:
             raise ValueError("No square root for %d (mod %d)" % (a, p))
@@ -119,7 +120,7 @@ def sqrtmod_prime_power(a, p, k=1):
     def sqrtmod_prime_power_for_coprime(a, p, k):
         if a == 1:
             if p == 2:
-                if k == 1: return (1, )
+                if k == 1: return (1,)
                 if k == 2: return (1, 3)
                 if k == 3: return (1, 3, 5, 7)
             else:
@@ -152,8 +153,8 @@ def sqrtmod_prime_power(a, p, k=1):
             while powind < k:
                 next_powind = min(powind * 2, k)
                 # Represent root:  x = +- (r  +  p**powind * t1)
-                b = (a - r**2) % powers[next_powind]
-                b = (b * invmod( 2*r, powers[next_powind] )) % powers[next_powind]
+                b = (a - r ** 2) % powers[next_powind]
+                b = (b * invmod(2 * r, powers[next_powind])) % powers[next_powind]
                 if b:
                     if b % powers[powind]:
                         raise ValueError("No square root for given value")

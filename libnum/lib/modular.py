@@ -49,7 +49,7 @@ def solve_crt(remainders, modules):
         raise ValueError("Empty lists are given")
 
     if len(modules) == 1:
-        return remainders[0]
+        return int(remainders[0])
 
     x = 0
     N = reduce(operator.mul, modules)
@@ -61,7 +61,7 @@ def solve_crt(remainders, modules):
         b = invmod(Ni, module)
 
         x += remainders[i] * Ni * b
-    return x % N
+    return int(x % N)
 
 
 def nCk_mod(n, k, factors):
