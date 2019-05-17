@@ -32,6 +32,7 @@ class SqrtTest(unittest.TestCase):
         n = unfactorize(factors)
 
         any_root = next(sqrtmod(a, factors))
+        print((any_root, 2, n))
         self.assertEqual(pow(any_root, 2, n), a)
 
         all_roots = list(sqrtmod(a, factors))

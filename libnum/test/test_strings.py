@@ -21,7 +21,7 @@ class StringsTest(unittest.TestCase):
         self.assertEqual(s2b(s), bs)
         self.assertEqual(b2s(bs), s)
         self.assertRaises(TypeError, s2b, 123)
-        self.assertRaises(TypeError, b2s, 123)
+        self.assertRaises(AttributeError, b2s, 123)
         self.assertRaises(ValueError, b2s, "deadbeef")
 
 

@@ -6,8 +6,7 @@
 # I've just ported it to python3 since the project looked inactive
 
 
-from distutils.core import setup
-
+from setuptools import setup
 import libnum
 
 
@@ -21,7 +20,7 @@ setup(name='libnum',
       description='python3 comptaible fork for libnum - Some number theoretic functions.',
       long_description=libnum.__doc__,
 
-      packages=['libnum', 'libnum.chains'],
+      packages=['libnum', 'libnum.lib.chains'],
       provides=['libnum'],
 
       keywords='number prime gcd lcm modular invmod elliptic',

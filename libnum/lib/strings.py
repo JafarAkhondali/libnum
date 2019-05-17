@@ -1,4 +1,5 @@
 #-*- coding:utf-8 -*-
+import codecs
 
 
 def s2n(s):
@@ -7,17 +8,17 @@ def s2n(s):
     """
     if not len(s):
         return 0
-    return int(s.encode("hex"), 16)
+    return int(codecs.encode(s, 'utf-8'), 16)
 
 
 def n2s(n):
     """
     Number to string.
     """
-    s = hex(n)[2:].rstrip("L")
+    s = hex(n)[2:]
     if len(s) % 2 != 0:
         s = "0" + s
-    return s.decode("hex")
+    return str(codecs.decode(s, 'hex'), 'utf-8')
 
 
 def s2b(s):

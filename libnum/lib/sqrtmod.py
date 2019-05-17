@@ -170,7 +170,7 @@ def sqrtmod_prime_power(a, p, k=1):
     # x**2 == 0 (mod p**k),  p is prime
     def sqrt_for_zero(p, k):
         roots = [0]
-        start_k = (k / 2 + 1) if k & 1 else (k / 2)
+        start_k = (k // 2 + 1) if k & 1 else (k // 2)
 
         r = powers[start_k] % pow_p
         r0 = r

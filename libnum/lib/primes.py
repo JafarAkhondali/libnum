@@ -142,7 +142,7 @@ def prime_test_solovay_strassen(p, k=25):
         if gcd(a, p) != 1:
             return False
 
-        result = pow(a, (p - 1) / 2, p)
+        result = pow(a, (p - 1) // 2, p)
         if result not in (1, p - 1):
             return False
 
