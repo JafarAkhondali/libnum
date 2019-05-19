@@ -1,7 +1,11 @@
 libnum
-====================
+=========
+This fork is made for python3 (and compatible with python2 as far as i know).
 
-**Requirements:** python3
+Installation:
+==================
+`pip install libnum`
+
 
 This is a python library for some numbers functions:
 
