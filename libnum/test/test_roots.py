@@ -4,9 +4,9 @@
 from __future__ import print_function
 import unittest
 
-from lib.primes import *
-from lib.sqrtmod import *
-from lib.factorize import factorize, unfactorize
+from libnum.primes import *
+from libnum.sqrtmod import *
+from libnum.factorize import factorize, unfactorize
 
 
 class SqrtTest(unittest.TestCase):

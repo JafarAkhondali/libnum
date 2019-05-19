@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 
 import unittest
-from lib import ecc
+from libnum import ecc
 
 
 class TestECC(unittest.TestCase):

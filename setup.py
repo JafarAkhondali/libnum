@@ -7,20 +7,18 @@
 
 
 from setuptools import setup
-import libnum
-
 
 setup(name='libnum',
-      version=libnum.__version__,
+      version='1.6.0',
       author='jafar akhondali',
       author_email='jafar.akhondali@yahoo.com',
       license='MIT',
 
       url='https://github.com/JafarAkhondali/python3-libnum',
       description='python3 comptaible fork for libnum - Some number theoretic functions.',
-      long_description=libnum.__doc__,
+      long_description='python3 comptaible fork for libnum - Some number theoretic functions.',
 
-      packages=['libnum', 'libnum.lib.chains'],
+      packages=['libnum', 'libnum.chains'],
       provides=['libnum'],
 
       keywords='number prime gcd lcm modular invmod elliptic',

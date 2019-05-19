@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 
 import unittest
-from lib import *
+from libnum import *
 
 
 class StuffTest(unittest.TestCase):

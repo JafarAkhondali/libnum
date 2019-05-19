@@ -3,7 +3,7 @@
 from __future__ import print_function
 import unittest
 from itertools import combinations_with_replacement
-from lib import *
+from libnum import *
 from functools import reduce
 
 class ModulusMath(unittest.TestCase):
